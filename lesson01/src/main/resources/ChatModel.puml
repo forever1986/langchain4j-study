@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+ChatModel -> ChatModel: chat(ChatRequest chatRequest)
+ChatModel --> OpenAiChatModel: doChat(ChatRequest chatRequest)
+OpenAiChatModel -> DefaultOpenAiClient: chatCompletion(ChatCompletionRequest request)
+DefaultOpenAiClient -> RequestExecutor: executeRaw()
+RequestExecutor -> SyncRequestExecutor: execute()
+RequestExecutor <-- SyncRequestExecutor: 返回ParsedAndRawResponse<Response>
+DefaultOpenAiClient <-- RequestExecutor: 返回ParsedAndRawResponse<Response>
+OpenAiChatModel <-- DefaultOpenAiClient: 返回ParsedAndRawResponse<ChatCompletionResponse>
+ChatModel <-- OpenAiChatModel: 返回ChatResponse
+@enduml

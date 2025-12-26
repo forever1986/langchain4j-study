@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+interface Planner
+class SequentialPlanner
+class LoopPlanner
+class ParallelPlanner
+class ConditionalPlanner
+class SupervisorPlanner
+
+
+Planner <|.. SequentialPlanner
+Planner <|.. LoopPlanner
+Planner <|.. ParallelPlanner
+Planner <|.. ConditionalPlanner
+Planner <|.. SupervisorPlanner
+
+@enduml

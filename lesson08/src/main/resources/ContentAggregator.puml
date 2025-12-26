@@ -1,0 +1,13 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+interface ContentAggregator
+class DefaultContentAggregator
+class ReRankingContentAggregator
+
+ContentAggregator <|-- DefaultContentAggregator
+ContentAggregator <|-- ReRankingContentAggregator
+
+
+@enduml

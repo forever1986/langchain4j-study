@@ -1,0 +1,2 @@
+Once your Documents are loaded, it is time to split (chunk) them into smaller segments (pieces).
+LangChain4j's domain model includes a TextSegment class that represents a segment of a Document. As the name suggests, TextSegment can represent only textual information.

@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface McpTransport
+class StdioMcpTransport
+class StreamableHttpMcpTransport
+class HttpMcpTransport
+class WebSocketMcpTransport
+
+
+McpTransport <|-- StdioMcpTransport
+McpTransport <|-- StreamableHttpMcpTransport
+McpTransport <|-- HttpMcpTransport
+McpTransport <|-- WebSocketMcpTransport
+
+@enduml

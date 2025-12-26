@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+StreamingChatModel -> StreamingChatModel: chat(ChatRequest ,StreamingChatResponseHandler)
+StreamingChatModel --> OpenAiStreamingChatModel: doChat(ChatRequest, StreamingChatResponseHandler)
+
+OpenAiStreamingChatModel -> DefaultOpenAiClient: chatCompletion(ChatCompletionRequest)
+DefaultOpenAiClient -> RequestExecutor: chatCompletion(ChatCompletionRequest)
+
+RequestExecutor -> StreamingResponseHandling: onRawPartialResponse(Consumer<ParsedAndRawResponse<Response>>)
+StreamingResponseHandling -> StreamingResponseHandling: onComplete(Runnable)
+StreamingCompletionHandling -> ErrorHandling: onError(Consumer<Throwable>)
+ErrorHandling -> StreamingRequestExecutor: execute()
+StreamingRequestExecutor -> StreamingRequestExecutor: stream()
+
+StreamingRequestExecutor --> ServerSentEventListener: onEvent(ServerSentEvent, ServerSentEventContext)
+ServerSentEventListener --> streamingCompletionCallback: 如果访问结果：[DONE]
+ServerSentEventListener --> errorHandler: 如果访问结果：error
+ServerSentEventListener --> partialResponseHandler: 如果访问是中间结果
+
+@enduml

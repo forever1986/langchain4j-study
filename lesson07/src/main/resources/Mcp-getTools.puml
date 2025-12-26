@@ -1,0 +1,12 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+DefaultAiServices -> ToolService: 第330行，调用ToolService的createContext
+ToolService -> McpToolProvider: 第195行，调用McpToolProvider的provideTools
+McpToolProvider -> DefaultMcpClient: 第145行，DefaultMcpClient的listTools
+DefaultMcpClient -> DefaultMcpClient: 第204行，DefaultMcpClient的obtainToolList
+DefaultMcpClient -> McpTransport: 第355行，调用McpTransport的executeOperationWithResponse
+
+@enduml

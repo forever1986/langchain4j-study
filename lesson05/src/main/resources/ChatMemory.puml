@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface ChatMemory
+class TokenWindowChatMemory
+class MessageWindowChatMemory
+interface ChatMemoryProvider
+interface ChatMemoryStore
+
+ChatMemoryProvider <-- ChatMemory:依赖
+ChatMemory <|-- MessageWindowChatMemory
+ChatMemory <|-- TokenWindowChatMemory
+ChatMemoryStore <|-- InMemoryChatMemoryStore
+ChatMemoryStore <|-- SingleSlotChatMemoryStore
+ChatMemoryStore <.. ChatMemory:包含
+
+@enduml

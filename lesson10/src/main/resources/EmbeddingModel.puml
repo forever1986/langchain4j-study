@@ -1,0 +1,12 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+interface EmbeddingModel
+abstract class DimensionAwareEmbeddingModel
+class DisabledEmbeddingModel
+
+EmbeddingModel <|-- DimensionAwareEmbeddingModel
+EmbeddingModel <|-- DisabledEmbeddingModel
+
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface ChatMessage
+class UserMessage
+class SystemMessage
+class AiMessage
+class ToolExecutionResultMessage
+class CustomMessage
+
+ChatMessage <|-- UserMessage
+ChatMessage <|-- SystemMessage
+ChatMessage <|-- AiMessage
+ChatMessage <|-- ToolExecutionResultMessage
+ChatMessage <|-- CustomMessage
+
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface McpClientMessage
+class McpListToolsRequest
+class McpCallToolRequest
+class McpGetPromptRequest
+class McpInitializeRequest
+class McpListPromptsRequest
+class McpListResourceTemplatesRequest
+class McpListResourcesRequest
+class McpPingRequest
+class McpReadResourceRequest
+
+McpClientMessage <|-- McpListToolsRequest
+McpClientMessage <|-- McpCallToolRequest
+McpClientMessage <|-- McpGetPromptRequest
+McpClientMessage <|-- McpInitializeRequest
+McpClientMessage <|-- McpListPromptsRequest
+McpClientMessage <|-- McpListResourceTemplatesRequest
+McpClientMessage <|-- McpListResourcesRequest
+McpClientMessage <|-- McpPingRequest
+McpClientMessage <|-- McpReadResourceRequest
+
+
+
+@enduml

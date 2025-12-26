@@ -1,0 +1,2 @@
+# lesson04
+本课程介绍Structured Outputs结构化输出

@@ -1,0 +1,2 @@
+# lesson12
+本课程演示langchain4j的Guardrails功能
